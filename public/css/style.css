@@ -1,0 +1,39 @@
+a {
+    color:black;
+    text-decoration: underline;
+}
+.login-container{
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.timerInfo, .buttons {
+   display: flex;
+   justify-content: center;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px 10px;
+}
+
+h2+h2::before {
+    content: ':'
+}
+#quarter {
+    width: 25%;
+}
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.logout {
+    margin-left: 20px;
+    text-align: center;
+}
