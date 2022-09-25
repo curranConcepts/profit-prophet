@@ -20,16 +20,15 @@ timer.addEventListener('secondTenthsUpdated', () => {
 })
 
 function recordTime() {
-    let time = timer.getTimeValues();
+    let time = timer.getTimeValues(hours,minutes);
     return time;
 }
 
 function insertTime() {
     let duration = document.getElementById('duration')
-    let record = document.getElementById('record')
     let time = recordTime();
     
-    duration.value = time;
+    duration.value = time
     
 } 
 
