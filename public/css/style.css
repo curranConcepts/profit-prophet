@@ -34,6 +34,9 @@ h2+h2::before {
     border-radius: 5px;
 }
 .logout {
+    display: flex;
+    justify-content: flex-end;
     margin-left: 20px;
     text-align: center;
+    text-decoration: none;
 }
