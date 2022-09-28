@@ -1,76 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="business" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profit Prophet</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <nav class="nav-extended">
-        <div class="nav-wrapper">
-          <a href="/dashboard" class="brand-logo center-align"><i class="fa-solid fa-file-invoice-dollar"></i></a>
-          <a href="/logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl">Profit Prophet</a>
         </div>
-        <div class="nav-content">
-          <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="/dashboard">Dashboard</a></li>
-            <li class="tab"><a href="/entries">Entries</a></li>
-            <li class="tab"><a href="/tasks">Tasks</a></li>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal p-0">
+            <li><a href="/entries">Entries</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
-      </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h3 class="center-align">Hello, <%= user.userName %></h3>
-                <h5 class="center-align">You have worked a total of <%= totalTime %>, and made $<%= totalPay %> for an average of $<%= payPerHour %> per hour.</h5>
-            </div>
-        </div>
-    <div class="center-align">
-        <div class="container login-container">
-            <div class="card">
-                <div class="card-content">
-                    <div id="status"></div>
-                    <div class="timerInfo">
-                      <h2 id="hours">00</h2>
-                      <h2 id="minutes">00</h2>
-                      <h2 id="seconds">00</h2>  
-                    </div>
+    </div>
+    <div class="flex flex-col w-full border-opacity-50">
+        <div class="grid h-20 card text-2xl rounded-box place-items-center">Hello, <%= user.userName %></div>
+        <div class="grid h-20 card bg-base-300 rounded-box place-items-center">You have worked a total of <%= totalTime %>, and made $<%= totalPay %> for an average of $<%= payPerHour %> per hour.</div>
+        <div class="divider"></div>
+    </div>
+    <div class="flex flex-col w-full place-items-center border-opacity-50">
+    <div class="card w-96 glass shadow-xl">
+         <div class="card-body">
+             <h2 class="card-title">new entry</h2>
+             <div id="status"></div>
+            <div class="timerInfo ">
+              <h2 class="text-4xl" id="hours">00</h2>
+              <h2 class="text-4xl" id="minutes">00</h2>
+              <h2 class="text-4xl" id="seconds">00</h2>  
+             </div>
+  
+             <div class="buttons">
+                 <button class="btn rounded-full px-1 btn-accent btn-outline" id="start">Start</button>
+                 <button class="btn rounded-full px-1 btn-accent btn-outline" id="pause">Pause/Stop</button>
+                 <button class="btn rounded-full px-1 btn-accent btn-outline" id="stop">Reset</button>
+                 <button class="btn rounded-full px-1 btn-accent btn-outline" id="record">Record</button>
+             </div>
 
-                    <div class="buttons">
-                        <button id="start">Start</button>
-                        <button id="pause">Pause/Stop</button>
-                        <button id="stop">Reset</button>
-                        <button id="record">Record</button>
+        <div>
+            <div class="flex flex-col "
+                   <form action="/entries/addEntry" method='POST'>
+                       <select id="task" name="task" class="select select-primary select-sm w-full max-w-xs">
+                           <option disabled selected>Select Task</option>
+                           <% tasks.forEach( el => { %>
+                            <option value="<%= el.task %>"> <%= el.task %> </option>
+                        <% }) %>
+                    </select>
+                    <input type="text" id="duration" placeholder="Duration" name="duration" class="input input-bordered input-primary input-sm w-20% max-w-xs">
+                    <div class="flex justify-around">
+                    <input type="number" id="quarter" step="any" placeholder="Units" name="units" class="input input-bordered input-primary input-sm w-25% max-w-xs">
+                    <select id="measure" name="measure" class="select select-primary select-sm w-20% max-w-xs">
+                        <option disabled selected>Meas.</option>
+                        <% tasks.forEach( el => { %>
+                            <option value="<%= el.measure %>"> <%= el.measure %> </option>
+                        <% }) %>
+                    </select>
+                    <input type="number" id="quarter" step="any" placeholder="$ Total" name='pay' class="input input-bordered input-primary input-sm w-20% max-w-xs">
                     </div>
-                <div>
-                    <form action="/entries/addEntry" method='POST'>
-                        <input type="text" autocomplete="off" name="task" list="task" placeholder="Task"><datalist id="task">
-                            <% tasks.forEach( el => { %>
-                                <option value="<%= el.task %>"> <%= el.task %> </option>
-                            <% }) %>
-                        </datalist>
-                        <input id="duration" type="text" placeholder="Duration" name='duration'>
-                        <input type="number" id="quarter" step="any" placeholder="Units" name='units'><span></span>
-                        <input type="text" id="quarter" name="measure" list="measure" placeholder="Measure"><datalist id="measure">
-                            <option value="ft">ft</option>
-                            <option value="yrd">yrd</option>
-                            <option value="sqft">sqft</option>
-                            <option value="sqyrd">sqyrd</option>
-                        </datalist>
-                        <input type="number" id="quarter" step="any" placeholder="$ Total" name='pay'><span></span><br>
-                        <input type="submit">
-                    </form>
-                </div>
-                </div>
+                    <br>
+                  <input type="submit">
+                </form>
             </div>
         </div>
     </div>
+    </div>
+</div>
     <script src="js/easyTimer.js"></script>
     <script src="js/script.js"></script>
 </body>

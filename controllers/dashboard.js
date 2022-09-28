@@ -47,10 +47,10 @@ module.exports = {
                 return ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2)
               }
             //getting error here when no entries are present eg. after signup
-            const totalTime = entryItems.reduce((acc,task)=>addTimes(acc,task.duration),0)
-            const totalHours = totalTime.split(':')[0]
+            const totalTime = entryItems.reduce((acc,task)=>addTimes(acc,task.duration),0) || '00:00:00'
+            const totalHours = totalTime.split(':')[0] || 0
             const PerHour = totalPay / totalHours || 0
-            const payPerHour = Math.round(PerHour * 100) / 100
+            const payPerHour = Math.round(PerHour * 100) / 100 || 0
 
 
             res.render('dashboard.ejs', {tasks: taskItems, 

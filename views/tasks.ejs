@@ -1,87 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="business" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profit Prophet | Tasks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="nav-extended">
-        <div class="nav-wrapper">
-          <a href="/dashboard" class="brand-logo"><i class="fa-solid fa-file-invoice-dollar"></i></a>
-          <a href="/logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl" href="/dashboard">Profit Prophet</a>
         </div>
-        <div class="nav-content">
-          <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="/dashboard">Dashboard</a></li>
-            <li class="tab"><a href="/entries">Entries</a></li>
-            <li class="tab"><a href="/tasks">Tasks</a></li>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal p-0">
+            <li><a href="/entries">Entries</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
-    </nav>
-    <div class="center-align">
-        <h1>Tasks</h1>
-        <div class="container">
-            <div class="card">
-                <div class="card-content">
-                    <form action="/tasks/createTask" method='POST'>
-                        <input type="text" placeholder="Task Name" name='task'>
-                        <input id="quarter" type="number" step="any" placeholder="$" name='pay'><span> X </span>
-                        <input id="quarter" type="text" name="measure" placeholder="Measure" list="measure"><datalist id="measure">
-                            <option value="ft">ft</option>
-                            <option value="yrd">yrd</option>
-                            <option value="sqft">sqft</option>
-                            <option value="sqyrd">sqyrd</option>
-                        </datalist>
-                        <input type="submit">
-                    </form>
-                    <div class="row">
-                        <div class="col s12">
-                            <table class="highlight">
-                                <thead>
-                                    <tr>
-                                        <th>Task</th>
-                                        <th>$Pay</th>
-                                        <th>Measure</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% tasks.forEach(task => { %>
-                                        <tr>
-                                            <td><%= task.task %></td>
-                                            <td><%= task.pay %></td>
-                                            <td><%= task.measure %></td>
-                                            <td>
-                                                <form
-                                                    action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
-                                                    method="POST"
-                                                    class="col-3"
-                                                    >
-                                                      <button class="fa fa-trash" type="submit"></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    <% }) %>
-                                </tbody>
-                            </table>
-                        </div>
-                     <!-- <ul>
-                     <% tasks.forEach( el => { %>
-                         <li class='taskItem' data-id='<%=el._id%>'>
-                            <span class='task'><%= el.task %></span>
-                            <span class='pay'><%= el.pay %></span>
-                            <span>X</span>
-                            <span class='measure'><%= el.measure %></span>
-                            <span class='del'><i class="fa-solid fa-trash"></i></span>
-                          </li>
-                     <% }) %>    
-                     </ul> -->
+    </div>
+    <div class="flex flex-col w-full border-opacity-50">
+        <div class="card rounded-box place-items-center text-2xl p-4">Tasks</div>
+        <div class="divider"></div>
+        <div class="card-bordered place-items-center m-auto">
+            <form action="/tasks/createTask" method='POST'>
+                <div class="flex justify-around">
+                <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm w-20% max-w-xs">
+                <input id="quarter" type="number" step="any" placeholder="$" name='pay' class="input input-bordered input-primary input-sm w-20% max-w-xs">
+                <select id="measure" name="measure" class="select select-primary select-sm w-20% max-w-xs">
+                    <option disabled selected>Meas.</option>
+                    <option value="ft">ft</option>
+                    <option value="yrd">yrd</option>
+                    <option value="sqft">sqft</option>
+                    <option value="sqyrd">sqyrd</option>
+                </select>
                 </div>
+                <input type="submit">
+            </form>
+        </div>
+        <div class="divider"></div>
+        <div class="card bg-base-300 rounded-box place-items-center"><table class="highlight">
+            <div class="overflow-x-auto">
+                   <table class="table table-compact w-full">
+                    <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>$Pay</th>
+                        <th>Measure</th>
+                        <th></th>
+                    </tr>
+                    </thead> 
+                    <tbody>
+                        <% tasks.forEach(task => { %>
+                            <tr>
+                                <td><%= task.task %></td>
+                                <td><%= task.pay %></td>
+                                <td><%= task.measure %></td>
+                                <td>
+                                    <form
+                                        action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
+                                        method="POST"
+                                        class="col-3"
+                                        >
+                                          <button class="fa fa-trash" type="submit"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

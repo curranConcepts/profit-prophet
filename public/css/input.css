@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+a {
+    color:black;
+    text-decoration: underline;
+}
+.login-container{
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.timerInfo, .buttons {
+   display: flex;
+   justify-content: center;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px 10px;
+}
+
+h2+h2::before {
+    content: ':'
+}
+#quarter {
+    width: 30%;
+}
+#measure {
+    width: 30%;
+}
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.logout {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+}
