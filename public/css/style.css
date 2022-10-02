@@ -4759,6 +4759,18 @@ body[dir="rtl"] .checkbox:checked,
   margin: auto;
 }
 
+.m-6 {
+  margin: 1.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -4847,12 +4859,20 @@ body[dir="rtl"] .checkbox:checked,
   place-items: center;
 }
 
+.items-center {
+  align-items: center;
+}
+
 .justify-center {
   justify-content: center;
 }
 
 .justify-around {
   justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .justify-self-center {
@@ -4865,6 +4885,10 @@ body[dir="rtl"] .checkbox:checked,
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .border {
@@ -4911,6 +4935,10 @@ body[dir="rtl"] .checkbox:checked,
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-xl {

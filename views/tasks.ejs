@@ -24,21 +24,29 @@
     <div class="flex flex-col w-full border-opacity-50">
         <div class="card rounded-box place-items-center text-2xl p-4">Tasks</div>
         <div class="divider"></div>
-        <div class="card-bordered place-items-center m-auto">
-            <form action="/tasks/createTask" method='POST'>
-                <div class="flex justify-around">
-                <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm w-20% max-w-xs">
-                <input id="quarter" type="number" step="any" placeholder="$" name='pay' class="input input-bordered input-primary input-sm w-20% max-w-xs">
-                <select id="measure" name="measure" class="select select-primary select-sm w-20% max-w-xs">
-                    <option disabled selected>Meas.</option>
-                    <option value="ft">ft</option>
-                    <option value="yrd">yrd</option>
-                    <option value="sqft">sqft</option>
-                    <option value="sqyrd">sqyrd</option>
-                </select>
+        <div class="card-bordered glass p-4">
+            <div class="card-body items-center">
+                <h2 class="card-title">New Task</h2>
+                <div class="flex flex-col">
+                <form action="/tasks/createTask" method='POST'>
+                    <div class="flex justify-around">
+                        <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm w-20% max-w-xs">
+                        <input id="quarter" type="number" step="any" placeholder="$" name='pay' class="input input-bordered input-primary input-sm w-20% max-w-xs">
+                        <select id="measure" name="measure" class="select select-primary select-sm w-20% max-w-xs">
+                            <option disabled selected>Meas.</option>
+                            <option value="ft">ft</option>
+                            <option value="yrd">yrd</option>
+                            <option value="sqft">sqft</option>
+                            <option value="sqyrd">sqyrd</option>
+                        </select>
+                    </div>
+                <br>
+                <div class="flex justify-center">
+                    <input type="submit">
                 </div>
-                <input type="submit">
-            </form>
+                </form>
+            </div>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="card bg-base-300 rounded-box place-items-center"><table class="highlight">

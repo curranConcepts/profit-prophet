@@ -1,28 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="business" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <title>Profit Prophet | Login</title>
 </head>
 <body>
-    <div class="container login-container">
-        <div class="card">
-            <div class="card-content">
+    <div class="flex flex-col w-full place-items-center border-opacity-50">
+        <div class="card w-96 mt-12 glass shadow-xl">
+             <div class="card-body items-center">
                 <h3><i class="fa-solid fa-file-invoice-dollar"></i> Profit Prophet</h3>
                 <div class="section">
                     <p class="lead">Log in to your Profit Prophet account</p>
                 </div>
-                <div class="divider"></div>
                 <div class="section">
-                   <!-- <a href="/" class="btn red darken-1">
-                         <i class="fab fa-google left">  Log In With Google</i>
-                   </a> -->
-
                    <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
                         <div class="alert alert-danger"><%= el.msg %></div>
@@ -34,14 +28,13 @@
                     <% }) %>    
                 <% } %>
                 <form action="/login" method="POST">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
-                    <input type="submit">
+                    <input type="email" name="email" placeholder="Email" class="input input-bordered input-primary input-sm  max-w-xs">
+                    <input type="password" name="password" placeholder="Password" class="input input-bordered input-primary input-sm  max-w-xs">
+                    <input type="submit" class="btn rounded px-1 btn-accent btn-outline m-6">
                 </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
