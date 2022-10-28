@@ -21,35 +21,37 @@
           </ul>
         </div>
     </div>
-    <div class="flex flex-col w-full border-opacity-50">
-        <div class="card rounded-box place-items-center text-2xl p-4">Tasks</div>
-        <div class="divider"></div>
-        <div class="card-bordered glass p-4">
+    <div class="card rounded-box place-items-center text-2xl p-4">
+        <h1>Tasks</h1>
+        <p class="text-m text-center">Create and mannage the tasks that you wish to track.</p>
+    </div>
+    <div class="flex flex-row w-full border-opacity-50">
+        <div class="card-bordered glass p-4 m-4 h-50">
             <div class="card-body items-center">
-                <h2 class="card-title">New Task</h2>
-                <div class="flex flex-col">
+                <h2 class="card-title text-2xl underline my-auto">New Task</h2>
                 <form action="/tasks/createTask" method='POST'>
-                    <div class="flex justify-around">
-                        <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm w-20% max-w-xs">
-                        <input id="quarter" type="number" step="any" placeholder="$" name='pay' class="input input-bordered input-primary input-sm w-20% max-w-xs">
-                        <select id="measure" name="measure" class="select select-primary select-sm w-20% max-w-xs">
+                    <div class="flex flex-col">
+                        <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm max-w-xs"><br>
+                        <div class="flex flex-row">
+                        <input id="quarter" type="number" step="any" placeholder="$Rate" name='pay' class="input input-bordered input-primary input-sm max-w-xs"><br>
+                        <select id="measure" name="measure" class="select select-primary select-sm max-w-xs">
                             <option disabled selected>Meas.</option>
                             <option value="ft">ft</option>
                             <option value="yrd">yrd</option>
                             <option value="sqft">sqft</option>
                             <option value="sqyrd">sqyrd</option>
                         </select>
+                        </div>
                     </div>
                 <br>
                 <div class="flex justify-center">
-                    <input type="submit">
+                    <input type="submit" class="btn rounded w-60 px-1 btn-accent btn-outline m-6">
                 </div>
                 </form>
             </div>
-            </div>
         </div>
-        <div class="divider"></div>
-        <div class="card bg-base-300 rounded-box place-items-center"><table class="highlight">
+        <div class="divider my-8 place-items-center"></div>
+        <!-- <div class="card bg-base-300 rounded-box place-items-center"><table class="highlight">
             <div class="overflow-x-auto">
                    <table class="table table-compact w-full">
                     <thead>
@@ -80,6 +82,28 @@
                     </tbody>
                 </table>
             </div>
+        </div> -->
+        <div class="flex flex-wrap">
+        <% tasks.forEach(task => { %>
+            <div class="card-bordered w-60 bg-primary m-4 text-secondary-focus">
+                <div class="card-body">
+                    <h2 class="card-title text-primary-content underline"><%= task.task %></h2>
+                    <p>Pay: $<%= task.pay %></p>
+                    <p>Measure: <%= task.measure %></p>
+                     <!-- this needs logic to show the hourly rate for the task -->
+                    <p>/hr: $</p>
+                    <div class="card-actions justify-end">
+                        <form
+                            action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
+                            method="POST"
+                            class="col-3"
+                            >
+                            <button class="fa fa-trash" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
         </div>
     </div>
 </body>

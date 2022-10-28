@@ -27,10 +27,12 @@ h2+h2::before {
     content: ':'
 }
 #quarter {
-    width: 30%;
+    width: 45%;
+    margin: 0 auto;
 }
 #measure {
-    width: 30%;
+    width: 45%;
+    margin: 0 auto;
 }
 .taskItem {
     display: flex;
