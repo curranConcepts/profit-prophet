@@ -17,6 +17,7 @@ The site was originally deployed on heroku. However since heroku is nolonger sup
 ## Optimizations
 This is a long term project with many future optimizations planned.
 - I would like to update the front end from EJS to React
+- I would like to change the timer to a punchcard system and calculate hours worked on the backend.
 - I would like to add images to the entries, so contractors can keep pictures of completed work
 - I would like to add per hour profits to tasks so you can see an hourly rate for each task.
 
