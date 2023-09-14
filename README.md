@@ -13,13 +13,13 @@
 
 ### ✨ [Demo](https://profit-prophet.fly.dev)
 
-## Install
+## 🔧 Install
 
 ```sh
 npm install
 ```
 
-## Usage
+## 🚀 Usage
 
 ```sh
 npm run start
