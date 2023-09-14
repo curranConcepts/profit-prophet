@@ -1,54 +1,45 @@
-# Profit Prophet
+<h1 align="center">Welcome to Profit Prophet 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/codingCurran" target="_blank">
+    <img alt="Twitter: codingCurran" src="https://img.shields.io/twitter/follow/codingCurran.svg?style=social" />
+  </a>
+</p>
 
-A simple task/profit tracker to help independent contractors bid their work
+> A simple task/profit tracker to help independent contractors bid their work
 
-### Tech used:
-**HTML, CSS, JavaScript, EJS, Express, Node, TailwindCSS, Docker**
+### ✨ [Demo](https://profit-prophet.fly.dev)
 
-### Front-End
-The front end was built with EJS as a templating language and tailwindCSS for style.
+## Install
 
-### Back-End
-The backend follows MVC principals and was built using Node, Express, Mongoose and MongoDB. Passport-local, Express session and Bcrypt were used for authentication.
+```sh
+npm install
+```
 
-### Deployment 
-The site was originally deployed on heroku. However since heroku is nolonger supporting their free teir, the site has since been moved to fly.io for hosting. fly.io utilizes the docker build system for hosting.
+## Usage
 
-## Optimizations
-This is a long term project with many future optimizations planned.
-- I would like to update the front end from EJS to React
-- I would like to change the timer to a punchcard system and calculate hours worked on the backend.
-- I would like to add images to the entries, so contractors can keep pictures of completed work
-- I would like to add per hour profits to tasks so you can see an hourly rate for each task.
+```sh
+npm run start
+```
 
-### Dependencies
+## Author
 
-NONE! this is a web-app for everyone! 
+👤 **Austin Curran**
 
-### Installing
+* Website: https://austincurran.com/
+* Twitter: [@codingCurran](https://twitter.com/codingCurran)
+* Github: [@curranConcepts](https://github.com/curranConcepts)
+* LinkedIn: [@codingCurran](https://linkedin.com/in/codingCurran)
 
-* Just visit "https://profit-prophet.fly.dev" to use.
+## 🤝 Contributing
 
-### Executing program
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/curranConcepts/profit-prophet/issues). 
 
-* First you must add some tasks to track
-  -click edit tasks
-  -add task name, and how much you charge for the task
-  -click submit (your task should populate in the list)
+## Show your support
 
-* Track your first task 
-  -on the dashboard page select your task from drop down menu
-  -click start to start the timer (use the pause button for unpaid breaks)
-  -when finished with task click stop button to stop timer
-  -click record button to record time to 'duration' of task
-  -add how many units of task were completed 
-  -click submit to add entry
+Give a ⭐️ if this project helped you!
 
-* See how your hard work pays off!
-  -the dashboard will track your total hours worked and total pay earned and give you an hourly average.
-  -use the entries tab to view and delete all entries individually.
-
-## Help
-
-Feel free to email me if any bugs/issues arise.
-
+***
