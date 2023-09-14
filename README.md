@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to Profit Prophet 👋</h1>
-<p>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
@@ -12,6 +12,11 @@
 > A simple task/profit tracker to help independent contractors bid their work
 
 ### ✨ [Demo](https://profit-prophet.fly.dev)
+ <p align="center">
+   <a target="_blank" href="https://profit-prophet.fly.dev">
+            <img src="https://media.giphy.com/media/N7hJGqFx8o1NPUE7qp/giphy.gif" width="50%" alt="Profit-Prophet"/>
+  </a>
+ </p>
 
 ## 🔧 Install
 
