@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html data-theme="business" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+      body {
+        font-family: "Short Stack", cursive;
+      }
+    </style>
+    <title>Profit Prophet | Login</title>
+  </head>
 
-    <div class="flex flex-col justify-around w-full place-items-center border-opacity-50">
-        <div class="card w-96 mt-12 glass shadow-xl">
-             <div class="card-body items-center">
-                 <h2 class="card-title"><i class="fa-solid fa-file-invoice-dollar"></i>Register</h2>
-                 <div class="items-center">
-                    <% if (locals.messages.errors) { %>
-                        <% messages.errors.forEach( el => { %>
-                            <div class="alert alert-danger"><%= el.msg %></div>
-                        <% }) %>    
-                    <% } %>
-                    <form action="/signup" method="POST">
-                        <input type="text" name="userName" placeholder="User Name" class="input input-bordered input-primary mb-2 input-sm max-w-xs">
-                        <input type="email" name="email" placeholder="Email" class="input input-bordered input-primary mb-2 input-sm max-w-xs">
-                        <input type="password" name="password" placeholder="Password" class="input input-bordered input-primary mb-2 input-sm max-w-xs">
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password" class="input input-bordered input-primary mb-2 input-sm max-w-xs"><br>
-                        <input type="submit" class="btn rounded px-1 btn-accent btn-outline">
-                    </form>
-                 </div>
-            </div>
-        </div>
-    </div>
-</body>
+  <body class="doodle">
+    <a href="/"><i class="fa-solid fa-angles-left"></i></a>
+    <fieldset>
+      <legend>[Profit Prophet]</legend>
+      <div class="register">
+      <h2><i class="fa-solid fa-user-plus"></i>Register a new user</h2>
+          <% if (locals.messages.errors) { %>
+              <% messages.errors.forEach( el => { %>
+                  <div class="alert alert-danger"><%= el.msg %></div>
+              <% }) %>    
+          <% } %>
+          <form class="signUp" action="/signup" method="POST">
+              <input type="text" name="userName" size="63" placeholder="User Name">
+              <input type="email" name="email" size="63" placeholder="Email">
+              <input type="password" name="password" size="30" placeholder="Password">
+              <input type="password" name="confirmPassword" size="30" placeholder="Confirm Password"><br>
+              <input
+						type="submit"
+						style="
+							background-color: #ffd449;
+							font-size: 0.5em;
+							color: black;
+							width: 100%;
+							cursor: pointer;
+						"
+					/>
+          </form>
+          </div>
+    </fieldset>
+  </body>
 </html>

@@ -1,296 +1,330 @@
 /* Layout */
 
 body {
-  max-width: 800px;
-  margin: auto;
-  padding: 1em;
-  font-family: "Short Stack", cursive;
-  font-size: 2em;
-}
-
-@media only screen and (max-width: 600px) {
-  body {
-    font-size: 1.25em;
-  }
+	max-width: 800px;
+	margin: auto;
+	padding: 1em;
+	font-family: "Short Stack", cursive;
+	font-size: 1.4em;
+	display: flex;
+	justify-content: space-around;
 }
 
 h2 {
-  margin-top: 2em;
+	margin-top: 2em;
 }
 
 select {
-  width: 10em;
-  margin-bottom: 0.5em;
+	width: 10em;
+	margin-bottom: 0.5em;
 }
 
 select:focus {
-  min-width: 10em;
-  width: auto;
+	min-width: 10em;
+	width: auto;
+}
+
+.hero {
+	display: flex;
+	flex-flow: row wrap;
 }
 
 .header {
-  text-align: center;
+	text-align: center;
+	width: 75%;
 }
 
 form {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+form .newEntry,
+form.signUp {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.taskContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.register {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* Navigation */
 
 .nav-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1em;
 }
 .nav1 {
-  display: flex;
-  flex-flow: row wrap;
-  /* This aligns items to the end line on main-axis */
-  justify-content: flex-start;
-}
-
-.nav2 {
-  display: flex;
-  flex-flow: row wrap;
-  /* This aligns items to the end line on main-axis */
-  justify-content: flex-end;
-}
-
-@media all and (max-width: 800px) {
-  .nav1 {
-    /* When on medium sized screens, we center it by evenly distributing empty space around items */
-    justify-content: space-around;
-  }
-}
-
-@media all and (max-width: 320px) {
-  .nav1 {
-    /* On small screens, we are no longer using row direction but column */
-    flex-direction: column;
-  }
+	display: flex;
+	flex-flow: row wrap;
+	/* This aligns items to the end line on main-axis */
+	justify-content: flex-start;
 }
 
 /* Timer styles */
 
 #task {
-  width: 100%;
+	width: 66%;
 }
 
 #pay,
 #units,
 #duration {
-  width: 10em;
-  margin-bottom: 0.5em;
+	width: 10em;
+	margin-bottom: 0.5em;
 }
 
 .timerInfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .timerButtons {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin-bottom: 1em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin-bottom: 1em;
 }
 
 /* Doodle style */
 
 .doodle * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .doodle {
-  background-color: #fdf7f1;
-  color: #3c3c3c;
+	background-color: #fdf7f1;
+	color: #3c3c3c;
 }
 
 .doodle input,
 .doodle textarea,
 .doodle table,
 .doodle img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .doodle fieldset * {
-  max-width: calc(100vw - 100px);
+	max-width: calc(100vw - 100px);
+}
+.doodle fieldset.register {
+	display: flex;
+	flex-direction: column;
 }
 
 .doodle table {
-  overflow: scroll;
+	overflow: scroll;
 }
 
 .doodle a {
-  color: #1c1c1c;
-  font-weight: bold;
+	color: #1c1c1c;
+	font-weight: bold;
 }
 
 .doodle ul li {
-  list-style-type: "* ";
+	list-style-type: "* ";
 }
 
 .doodle label {
-  padding: 0.25em 0px;
-  display: inline-block;
+	padding: 0.25em 0px;
+	display: inline-block;
 }
 
 .doodle fieldset,
 .doodle textarea {
-  border-style: solid;
-  border-width: 10px 10px 10px 10px;
-  border-image: url(../images/border.svg) 10 10 10 10 stretch stretch;
+	border-style: solid;
+	border-width: 10px 10px 10px 10px;
+	border-image: url(../images/border.svg) 10 10 10 10 stretch stretch;
 }
 
 .doodle .border,
 .doodle-border {
-  border-style: solid;
-  border-width: 10px 10px 10px 10px;
-  border-image: url(../images/button.svg) 10 10 10 10 stretch stretch;
+	border-style: solid;
+	border-width: 10px 10px 10px 10px;
+	border-image: url(../images/button.svg) 10 10 10 10 stretch stretch;
 }
 
 .doodle button,
 .doodle input,
 .doodle select,
 .doodle input[type="file"]::file-selector-button {
-  border-style: solid;
-  border-width: 10px 10px 10px 10px;
-  border-image: url(../images/button.svg) 10 10 10 10 stretch stretch;
+	border-style: solid;
+	border-width: 10px 10px 10px 10px;
+	border-image: url(../images/button.svg) 10 10 10 10 stretch stretch;
 }
 
 .doodle button {
-  text-align: center;
+	text-align: center;
 }
 
 .doodle button {
-  background-color: #9c9c9c;
-  border-radius: 8px;
-  font-size: 0.5em;
-  color: white;
-  display: inline-flex;
-  cursor: pointer;
+	background-color: #9c9c9c;
+	border-radius: 8px;
+	font-size: 0.5em;
+	color: white;
+	display: inline-flex;
+	cursor: pointer;
 }
 
 .doodle input[type="color"] {
-  min-height: 1.5em;
+	min-height: 1.5em;
 }
 
 .doodle hr {
-  border-style: solid;
-  border-width: 0px 3px 6px 3px;
-  border-image: url(../images/hr.svg) 0 3 6 3 stretch stretch;
+	border-style: solid;
+	border-width: 0px 3px 6px 3px;
+	border-image: url(../images/hr.svg) 0 3 6 3 stretch stretch;
 }
 
 .doodle blockquote {
-  border-left-style: solid;
-  border-width: 0px 6px 3px 6px;
-  border-image: url(../images/bq.svg) 0 6 3 6 stretch stretch;
-  padding-left: 0.5em;
-  border-right-width: 0px;
+	border-left-style: solid;
+	border-width: 0px 6px 3px 6px;
+	border-image: url(../images/bq.svg) 0 6 3 6 stretch stretch;
+	padding-left: 0.5em;
+	border-right-width: 0px;
 }
 
 .doodle pre {
-  overflow: auto;
+	overflow: auto;
 }
 
 .doodle table {
-  border-collapse: collapse;
-  overflow: auto;
-  display: block;
+	border-collapse: collapse;
+	overflow: auto;
+	display: block;
 }
 
 .doodle table thead {
-  border-bottom: 3px solid #bbb;
+	border-bottom: 3px solid #bbb;
 }
 
 .doodle table caption {
-  border-bottom-style: solid;
-  border-width: 0px 3px 6px 3px;
-  border-image: url(../images/hr.svg) 0 3 6 3 stretch stretch;
+	border-bottom-style: solid;
+	border-width: 0px 3px 6px 3px;
+	border-image: url(../images/hr.svg) 0 3 6 3 stretch stretch;
 }
 
 .doodle table td {
-  vertical-align: top;
+	vertical-align: center;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border-bottom: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	border-left: 1px solid #bbb;
+	border-right-style: dashed;
+	border-left-style: dashed;
 }
 
 .doodle img {
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 3px 3px 3px 3px;
-  border-image: url(../images/button.svg) 3 3 3 3 stretch stretch;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 3px 3px 3px 3px;
+	border-image: url(../images/button.svg) 3 3 3 3 stretch stretch;
 }
 
 .doodle select {
-  -webkit-appearance: none;
-  appearance: none;
-  padding-right: 1.5em;
-  background: url(../images/caret.svg) no-repeat right transparent;
-  background-position-x: calc(100% - 10px);
+	-webkit-appearance: none;
+	appearance: none;
+	padding-right: 1.5em;
+	background: url(../images/caret.svg) no-repeat right transparent;
+	background-position-x: calc(100% - 10px);
 }
 
 .doodle select[multiple] {
-  background: none;
-  padding: 0px;
+	background: none;
+	padding: 0px;
 }
 
 .doodle textarea,
 .doodle input,
 .doodle select {
-  background-color: unset;
-  font-family: "Short Stack", cursive;
-  font-size: 1em;
-  color: #3c3c3c;
+	background-color: unset;
+	font-family: "Short Stack", cursive;
+	font-size: 1em;
+	color: #3c3c3c;
 }
 
 .doodle input[type="checkbox"] {
-  border-width: 6px 6px 6px 6px;
-  border-image: url(../images/checkbox.svg) 6 6 6 6 stretch stretch;
+	border-width: 6px 6px 6px 6px;
+	border-image: url(../images/checkbox.svg) 6 6 6 6 stretch stretch;
 }
 
 .doodle input[type="radio"] {
-  border-width: 16px 16px 16px 16px;
-  border-image: url(../images/radio.svg) 16 16 16 16 stretch stretch;
+	border-width: 16px 16px 16px 16px;
+	border-image: url(../images/radio.svg) 16 16 16 16 stretch stretch;
 }
 
 .doodle input[type="checkbox"],
 .doodle input[type="radio"] {
-  -webkit-appearance: none;
-  appearance: none;
-  outline: 0;
-  background: transparent;
-  width: 1.5em;
-  height: 1.5em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+	-webkit-appearance: none;
+	appearance: none;
+	outline: 0;
+	background: transparent;
+	width: 1.5em;
+	height: 1.5em;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .doodle input[type="checkbox"]:after,
 .doodle input[type="radio"]:after {
-  font-size: 1.25em;
-  content: " ";
-  margin-bottom: -0.25em;
+	font-size: 1.25em;
+	content: " ";
+	margin-bottom: -0.25em;
 }
 
 .doodle input[type="checkbox"]:disabled:after,
 .doodle input[type="radio"]:disabled:after {
-  content: "-";
-  color: grey;
+	content: "-";
+	color: grey;
 }
 
 .doodle input[type="checkbox"]:checked:after,
 .doodle input[type="radio"]:checked:after {
-  content: "*";
+	content: "*";
 }
 
 .doodle input[type="file"]::file-selector-button {
-  font-family: inherit;
-  font-size: 0.8em;
-  font-size: 1em;
-  background-color: unset;
-  color: #3c3c3c;
+	font-family: inherit;
+	font-size: 0.8em;
+	font-size: 1em;
+	background-color: unset;
+	color: #3c3c3c;
+}
+
+/* Media Queries */
+
+@media all and (max-width: 800px) {
+	.nav1 {
+		/* When on medium sized screens, we center it by evenly distributing empty space around items */
+		justify-content: space-around;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		font-size: 1.25em;
+	}
+}
+
+@media all and (max-width: 300px) {
+	.nav-bar,
+	.nav1,
+	.nav2 {
+		/* On small screens, we are no longer using row direction but column */
+		flex-direction: column;
+		align-content: center;
+	}
 }

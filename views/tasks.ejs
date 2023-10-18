@@ -1,110 +1,170 @@
 <!DOCTYPE html>
 <html data-theme="business" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profit Prophet | Tasks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="navbar bg-base-100">
-        <div class="flex-1">
-          <a class="btn btn-ghost normal-case text-xl" href="/dashboard">Profit Prophet</a>
-        </div>
-        <div class="flex-none">
-          <ul class="menu menu-horizontal p-0">
-            <li><a href="/entries">Entries</a></li>
-            <li><a href="/tasks">Tasks</a></li>
-            <li><a href="/logout">Logout</a></li>
-          </ul>
-        </div>
-    </div>
-    <div class="card rounded-box place-items-center text-2xl p-4">
-        <h1>Tasks</h1>
-        <p class="text-m text-center">Create and mannage the tasks that you wish to track.</p>
-    </div>
-    <div class="flex flex-row w-full border-opacity-50">
-        <div class="card-bordered glass p-4 m-4 h-50">
-            <div class="card-body items-center">
-                <h2 class="card-title text-2xl underline my-auto">New Task</h2>
-                <form action="/tasks/createTask" method='POST'>
-                    <div class="flex flex-col">
-                        <input type="text" placeholder="Task Name" name='task' class="input input-bordered input-primary input-sm max-w-xs"><br>
-                        <div class="flex flex-row">
-                        <input id="quarter" type="number" step="any" placeholder="$Rate" name='pay' class="input input-bordered input-primary input-sm max-w-xs"><br>
-                        <select id="measure" name="measure" class="select select-primary select-sm max-w-xs">
-                            <option disabled selected>Meas.</option>
-                            <option value="ft">ft</option>
-                            <option value="yrd">yrd</option>
-                            <option value="sqft">sqft</option>
-                            <option value="sqyrd">sqyrd</option>
-                        </select>
-                        </div>
-                    </div>
-                <br>
-                <div class="flex justify-center">
-                    <input type="submit" class="btn rounded w-60 px-1 btn-accent btn-outline m-6">
-                </div>
-                </form>
-            </div>
-        </div>
-        <div class="divider my-8 place-items-center"></div>
-        <!-- <div class="card bg-base-300 rounded-box place-items-center"><table class="highlight">
-            <div class="overflow-x-auto">
-                   <table class="table table-compact w-full">
-                    <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th>$Pay</th>
-                        <th>Measure</th>
-                        <th></th>
-                    </tr>
-                    </thead> 
-                    <tbody>
-                        <% tasks.forEach(task => { %>
-                            <tr>
-                                <td><%= task.task %></td>
-                                <td><%= task.pay %></td>
-                                <td><%= task.measure %></td>
-                                <td>
-                                    <form
-                                        action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
-                                        method="POST"
-                                        class="col-3"
-                                        >
-                                          <button class="fa fa-trash" type="submit"></button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
-        <div class="flex flex-wrap">
-        <% tasks.forEach(task => { %>
-            <div class="card-bordered w-60 bg-primary m-4 text-secondary-focus">
-                <div class="card-body">
-                    <h2 class="card-title text-primary-content underline"><%= task.task %></h2>
-                    <p>Pay: $<%= task.pay %></p>
-                    <p>Measure: <%= task.measure %></p>
-                     <!-- this needs logic to show the hourly rate for the task -->
-                    <p>/hr: $</p>
-                    <div class="card-actions justify-end">
-                        <form
-                            action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
-                            method="POST"
-                            class="col-3"
-                            >
-                            <button class="fa fa-trash" type="submit"></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        <% }) %>
-        </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Profit Prophet</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+			body {
+				font-family: "Short Stack", cursive;
+			}
+		</style>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body class="doodle">
+		<fieldset>
+			<legend>[Profit Prophet]</legend>
+			<div class="nav-bar">
+				<div class="nav1">
+					<a href="/dashboard" class="button"
+						><button
+							style="
+								background-color: #ffd449;
+								color: black;
+								margin-right: 1em;
+							"
+						>
+							Home
+						</button></a
+					>
+					<a href="/entries" class="button"
+						><button
+							style="
+								background-color: #ffd449;
+								color: black;
+								margin-right: 1em;
+							"
+						>
+							Entries
+						</button></a
+					>
+					<a href="/tasks" class="button" id="grow"
+						><button
+							style="background-color: #ffd449; color: black"
+						>
+							Tasks
+						</button></a
+					>
+				</div>
+
+				<a href="/logout" class="button"
+					><button style="background-color: #ffd449; color: black">
+						Log Out
+					</button></a
+				>
+			</div>
+			<div class="taskPage">
+				<h3>New Task</h3>
+				<div class="taskContainer">
+					<form action="/tasks/createTask" method="POST">
+						<input
+							type="text"
+							placeholder="Task Name"
+							name="task"
+							size="38"
+						/>
+						<input
+							type="text"
+							placeholder="Measure"
+							id="measure "
+							name="measure"
+							size="15"
+						/>
+						<input
+							type="number"
+							step="any"
+							placeholder="$Rate"
+							name="pay"
+						/>
+						<input
+							type="submit"
+							style="
+								background-color: #ffd449;
+								font-size: 0.5em;
+								color: black;
+								width: 70%;
+								cursor: pointer;
+							"
+						/>
+					</form>
+				</div>
+				<hr />
+				<h3>Tasks</h3>
+				<div class="taskContainer">
+					<table>
+						<thead>
+							<tr>
+								<th>Task</th>
+								<th>Rate</th>
+								<th>Measure</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% tasks.forEach(task => { %>
+							<tr>
+								<td class="tableData"><%= task.task %></td>
+								<td class="tableData">$<%= task.pay %></td>
+								<td class="tableData"><%= task.measure %></td>
+								<td class="tableData">
+									<form
+										action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
+										method="POST"
+										class="col-3"
+									>
+										<button
+											class="fa fa-trash"
+											style="
+												background-color: #ff5e5b;
+												font-size: 0.5em;
+												color: black;
+												cursor: pointer;
+											"
+											type="submit"
+										></button>
+									</form>
+								</td>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- <div class="taskContainer">
+					<% tasks.forEach(task => { %>
+					<fieldset>
+						<legend><%= task.task %></legend>
+						<p>Pay: $<%= task.pay %></p>
+						<p>Measure: <%= task.measure %></p>
+						<form
+							action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
+							method="POST"
+							class="col-3"
+						>
+							<button
+								class="fa fa-trash"
+								style="
+									background-color: #ff5e5b;
+									font-size: 0.5em;
+									color: black;
+									cursor: pointer;
+								"
+								type="submit"
+							></button>
+						</form>
+					</fieldset>
+					<% }) %>
+				</div> -->
+			</div>
+		</fieldset>
+	</body>
 </html>

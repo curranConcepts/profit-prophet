@@ -1,134 +1,153 @@
 <!DOCTYPE html>
 <html data-theme="business" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profit Prophet</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
-      body {
-        font-family: "Short Stack", cursive;
-      }
-    </style>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Profit Prophet</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+			body {
+				font-family: "Short Stack", cursive;
+			}
+		</style>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
 
-  <body class="doodle">
-    <fieldset>
-      <legend>
-        <i class="fa-solid fa-file-invoice-dollar"></i>Profit Prophet
-      </legend>
-      <div class="nav-bar">
-        <div class="nav1">
-          <a href="/dashboard" class="button"
-            ><button
-              style="background-color: #ffd449; color: black; margin-right: 1em"
-            >
-              Home
-            </button></a
-          >
-          <a href="/entries" class="button"
-            ><button
-              style="background-color: #ffd449; color: black; margin-right: 1em"
-            >
-              Entries
-            </button></a
-          >
-          <a href="/tasks" class="button"
-            ><button style="background-color: #ffd449; color: black">
-              Tasks
-            </button></a
-          >
-        </div>
-        <div class="nav2">
-          <a href="/logout" class="button"
-            ><button style="background-color: #ffd449; color: black">
-              Log Out
-            </button></a
-          >
-        </div>
-      </div>
+	<body class="doodle">
+		<fieldset>
+			<legend>[Profit Prophet]</legend>
+			<div class="nav-bar">
+				<div class="nav1">
+					<a href="/dashboard" class="button"
+						><button
+							style="
+								background-color: #ffd449;
+								color: black;
+								margin-right: 1em;
+							"
+						>
+							Home
+						</button></a
+					>
+					<a href="/entries" class="button"
+						><button
+							style="
+								background-color: #ffd449;
+								color: black;
+								margin-right: 1em;
+							"
+						>
+							Entries
+						</button></a
+					>
+					<a href="/tasks" class="button" id="grow"
+						><button
+							style="background-color: #ffd449; color: black"
+						>
+							Tasks
+						</button></a
+					>
+				</div>
 
-      <p class="header">
-        Hello <%= user.userName %>! You've worked <%= totalTime %> and made $<%=
-        totalPay %> for $<%= payPerHour %> per hour.
-      </p>
+				<a href="/logout" class="button"
+					><button style="background-color: #ffd449; color: black">
+						Log Out
+					</button></a
+				>
+			</div>
+			<div class="hero">
+				<img
+					src="/images/hourglass.png"
+					style="border: none; height: 15%; width: 15%"
+				/>
+				<p class="header">
+					Hello <%= user.userName %>! You've worked <%= totalTime %>
+					and made $<%= totalPay %> for $<%= payPerHour %> per hour.
+				</p>
+			</div>
 
-      <hr />
-      <section class="timerInfo">
-        <h2 id="hours">00</h2>
-        <h2>:</h2>
-        <h2 id="minutes">00</h2>
-        <h2>:</h2>
-        <h2 id="seconds">00</h2>
-      </section>
+			<hr />
 
-      <div class="timerButtons">
-        <button id="start" style="background-color: #45c247">Start</button>
-        <button id="pause">Pause/Stop</button>
-        <button id="stop">Reset</button>
-        <button id="record" style="background-color: #ff5e5b">Record</button>
-      </div>
-      <fieldset>
-        <legend>New Entry</legend>
-        <form action="/entries/addEntry" method="POST">
-          <select id="task" name="task">
-            <option disabled selected>Select Task</option>
-            <% tasks.forEach( el => { %>
-            <option value="<%= el.task %>"><%= el.task %></option>
-            <% }) %>
-          </select>
-          <input
-            type="text"
-            id="duration"
-            placeholder="Duration"
-            name="duration"
-            disabled
-            size="15"
-          />
-          <input
-            type="number"
-            id="units"
-            step="any"
-            placeholder="Units"
-            name="units"
-          />
-          <select id="measure" name="measure">
-            <option disabled selected size="5">Meas.</option>
-            <% tasks.forEach( el => { %>
-            <option value="<%= el.measure %>"><%= el.measure %></option>
-            <% }) %>
-          </select>
-          <input
-            type="number"
-            id="pay"
-            step="any"
-            placeholder="$ Total"
-            name="pay"
-            size="5"
-          />
-          <input
-            type="submit"
-            style="
-              background-color: #ffd449;
-              font-size: 0.5em;
-              color: black;
-              width: 100%;
-            "
-          />
-        </form>
-      </fieldset>
-    </fieldset>
+			<fieldset>
+				<legend>New Entry</legend>
 
-    <script src="js/easyTimer.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+				<section class="timerInfo">
+					<h1 id="hours">00</h1>
+					<h1>:</h1>
+					<h1 id="minutes">00</h1>
+					<h1>:</h1>
+					<h1 id="seconds">00</h1>
+				</section>
+
+				<div class="timerButtons">
+					<button id="start" style="background-color: #45c247">
+						Start
+					</button>
+					<button id="pause">Pause/Stop</button>
+					<button id="reset">Reset</button>
+					<button id="record" style="background-color: #ff5e5b">
+						Record
+					</button>
+				</div>
+
+				<form class="newEntry" action="/entries/addEntry" method="POST">
+					<select id="task" name="task">
+						<option disabled selected>Select Task</option>
+						<% tasks.forEach( el => { %>
+						<option value="<%= el.task %>"><%= el.task %></option>
+						<% }) %>
+					</select>
+					<input
+						type="text"
+						id="duration"
+						placeholder="Duration"
+						name="duration"
+					/>
+					<input
+						type="number"
+						id="units"
+						step="any"
+						placeholder="Units"
+						name="units"
+					/>
+					<select id="measure" name="measure">
+						<option disabled selected size="5">Meas.</option>
+						<% tasks.forEach( el => { %>
+						<option value="<%= el.measure %>">
+							<%= el.measure %>
+						</option>
+						<% }) %>
+					</select>
+					<input
+						type="number"
+						id="pay"
+						step="any"
+						placeholder="$ Total"
+						name="pay"
+					/>
+					<input
+						type="submit"
+						style="
+							background-color: #ffd449;
+							font-size: 0.5em;
+							color: black;
+							width: 100%;
+							cursor: pointer;
+						"
+					/>
+				</form>
+			</fieldset>
+		</fieldset>
+
+		<script src="js/easyTimer.js"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>
