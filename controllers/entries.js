@@ -1,11 +1,14 @@
 const Entries = require('../models/Entries')
+const Task = require('../models/Tasks')
 
 module.exports = {
     getEntries: async (req,res)=>{
         console.log(req.user)
         try{
             const entriesItems = await Entries.find({userId:req.user.id})
-            res.render('entries.ejs', {entries: entriesItems, user: req.user})
+            const taskItems = await Task.find({userId:req.user.id})
+
+            res.render('entries.ejs', {entries: entriesItems, tasks: taskItems, user: req.user})
         }catch(err){
             console.log(err)
         }
