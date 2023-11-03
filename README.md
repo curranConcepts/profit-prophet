@@ -14,13 +14,13 @@
 ### ✨ [Demo](https://profit-prophet.fly.dev)
  <p align="center">
    <a target="_blank" href="https://profit-prophet.fly.dev">
-            <img src="https://media.giphy.com/media/N7hJGqFx8o1NPUE7qp/giphy.gif" width="50%" alt="Profit-Prophet"/>
+            <img src="https://i.ibb.co/r0B8TW5/profit-Mock.jpg" width="50%" alt="Profit-Prophet"/>
   </a>
  </p>
 
 ## 🚀 Usage
 
-Visit https://profit-prophet.fly.dev
+Visit https://profit-prophet.fly.dev and create an account.
 
 * First you must add some tasks to track.
   Click edit tasks ->
