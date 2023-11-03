@@ -55,15 +55,98 @@
                     <canvas id="myChart"></canvas>
                 </div>
                 <div id="chartButtons">
-                    <button onclick="timeFrame(this)" value="day">Day</button>
-                    <button onclick="timeFrame(this)" value="week">Week</button>
-                    <button onclick="timeFrame(this)" value="month">Month</button>
+                    <button onclick="timeFrame(this)" value="day">Days</button>
+                    <button onclick="timeFrame(this)" value="week">Weeks</button>
+                    <button onclick="timeFrame(this)" value="month">Months</button>
                 </div>
             </div>
         </fieldset>
+        <script>
+Chart.defaults.global.defaultFontFamily = "Short Stack";
+Chart.defaults.global.defaultFontSize = 12;
+Chart.defaults.global.defaultFontStyle = "normal";
+Chart.defaults.global.defaultFontColor = "#777";
 
-        <script src="js/chart.js"></script>
+let myChart = document.getElementById("myChart").getContext("2d");
+
+let day = <%- JSON.stringify(dayResult) %>
+
+let week = <%- JSON.stringify(weekResult) %>
+
+let month = <%- JSON.stringify(monthResult) %>
+
+const config = {
+    type: "bar", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    data: {
+        datasets: [
+            {
+                label: "Hours",
+                data: day,
+                backgroundColor: [
+                    "rgba(255, 94, 91, 0.5)",
+                    "rgba(245, 114, 44, 0.5)",
+                    "rgba(255, 212, 73, 0.5)",
+                    "rgba(69, 194, 71, 0.5)",
+                    "rgba(75, 192, 192, 0.5)",
+                    "rgba(88, 105, 200, 0.5)",
+                    "rgba(72, 0, 135, 0.5)",
+                ],
+                borderWidth: 1,
+                borderColor: "rgba(188, 188, 188, 1)",
+                hoverBorderColor: "rgba(0, 0, 0, 1)",
+            },
+        ],
+    },
+    options: {
+        title: {
+            display: true,
+            text: "Hours Worked",
+            fontSize: 20,
+        },
+        legend: {
+            display: false,
+        },
+        scales: {
+            xAxes: [
+                {
+                    type: "time",
+                    time: {
+                        unit: "day",
+                    },
+                    offset: true,
+                    bounds: "ticks",
+                    distribution: "series",
+                },
+            ],
+            yAxes: [
+                {
+                    ticks: {
+                        beginAtZero: true,
+                    },
+                },
+            ],
+        },
+    },
+};
+
+const hoursChart = new Chart(myChart, config);
+
+/// Chart script ///
+
+function timeFrame(period) {
+    if (period.value == "day") {
+        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+        hoursChart.config.data.datasets[0].data = day;
+    } else if (period.value == "week") {
+        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+        hoursChart.config.data.datasets[0].data = week;
+    } else {
+        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+        hoursChart.config.data.datasets[0].data = month;
+    }
+    hoursChart.update();
+}
+        </script>
         <script src="js/easyTimer.js"></script>
-        <script src="js/script.js"></script>
     </body>
 </html>
