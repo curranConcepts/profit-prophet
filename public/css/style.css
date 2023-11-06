@@ -31,6 +31,9 @@ select:focus {
 .loginContainer {
     text-align: center;
 }
+.loginStatus {
+    font-size: .75em;
+}
 
 .hero {
 	display: flex;
@@ -127,6 +130,7 @@ button.deleteButton {
 
 #pay,
 #units,
+#measure,
 #duration {
 	width: 10em;
 	margin-bottom: 0.5em;
