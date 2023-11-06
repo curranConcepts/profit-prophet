@@ -10,6 +10,10 @@ body {
 	justify-content: space-around;
 }
 
+a {
+    text-decoration: none;
+}
+
 h2 {
 	margin-top: 2em;
 }
@@ -22,6 +26,10 @@ select {
 select:focus {
 	min-width: 10em;
 	width: auto;
+}
+
+.loginContainer {
+    text-align: center;
 }
 
 .hero {
@@ -45,6 +53,9 @@ form.signUp {
 	flex-flow: row wrap;
 	justify-content: space-between;
 }
+input[type="number"] {
+      width: 150px;
+    }
 
 .taskContainer {
 	display: flex;
@@ -76,6 +87,36 @@ form.signUp {
 	flex-flow: row wrap;
 	/* This aligns items to the end line on main-axis */
 	justify-content: flex-start;
+}
+
+/* Button Styles */
+
+button.yellowButton {
+    background-color: #ffd449;
+    color: black;
+    margin-right: 1em;
+}
+button.redButton {
+    background-color: #ff5e5b;
+}
+button.greenButton {
+    background-color: #45c247;
+}
+button.greyButton {
+	background-color: #9c9c9c;
+}
+button.deleteButton {
+    background-color: #ff5e5b;
+    font-size: 0.5em;
+    color: black;
+    cursor: pointer;
+}
+.submitButton {
+    background-color: #ffd449;
+    font-size: 0.5em;
+    color: black;
+    width: 100%;
+    cursor: pointer;
 }
 
 /* Timer styles */
@@ -176,10 +217,8 @@ form.signUp {
 }
 
 .doodle button {
-	background-color: #9c9c9c;
 	border-radius: 8px;
 	font-size: 0.5em;
-	color: white;
 	display: inline-flex;
 	cursor: pointer;
 }
@@ -256,7 +295,6 @@ form.signUp {
 .doodle textarea,
 .doodle input,
 .doodle select {
-	background-color: unset;
 	font-family: "Short Stack", cursive;
 	font-size: 1em;
 	color: #3c3c3c;

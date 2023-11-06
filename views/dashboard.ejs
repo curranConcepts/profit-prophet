@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Profit Prophet</title>
+        <title>Profit Prophet | Dashboard</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
         @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
@@ -21,27 +21,11 @@
             <legend>[Profit Prophet]</legend>
             <div class="nav-bar">
                 <div class="nav1">
-                    <a href="/dashboard" class="button"><button style="
-                        background-color: #ffd449;
-                        color: black;
-                        margin-right: 1em;
-                        ">
-                        Home
-                    </button></a>
-                    <a href="/entries" class="button"><button style="
-                        background-color: #ffd449;
-                        color: black;
-                        margin-right: 1em;
-                        ">
-                        Entries
-                    </button></a>
-                    <a href="/tasks" class="button" id="grow"><button style="background-color: #ffd449; color: black">
-                        Tasks
-                    </button></a>
+                    <a href="/dashboard"><button class="yellowButton">Home</button></a>
+                    <a href="/entries"><button class="yellowButton">Entries</button></a>
+                    <a href="/tasks" id="grow"><button class="yellowButton">Tasks</button></a>
                 </div>
-                <a href="/logout" class="button"><button style="background-color: #ffd449; color: black">
-                    Log Out
-                </button></a>
+                <a href="/logout"><button class="yellowButton">Log Out</button></a>
             </div>
             <div class="hero">
                 <img src="/images/hourglass.png" style="border: none; height: 15%; width: 15%" />
@@ -55,97 +39,92 @@
                     <canvas id="myChart"></canvas>
                 </div>
                 <div id="chartButtons">
-                    <button onclick="timeFrame(this)" value="day">Days</button>
-                    <button onclick="timeFrame(this)" value="week">Weeks</button>
-                    <button onclick="timeFrame(this)" value="month">Months</button>
+                    <button class="greyButton" onclick="timeFrame(this)" value="day">Days</button>
+                    <button class="greyButton" onclick="timeFrame(this)" value="week">Weeks</button>
+                    <button class="greyButton" onclick="timeFrame(this)" value="month">Months</button>
                 </div>
             </div>
         </fieldset>
+
         <script>
-Chart.defaults.global.defaultFontFamily = "Short Stack";
-Chart.defaults.global.defaultFontSize = 12;
-Chart.defaults.global.defaultFontStyle = "normal";
-Chart.defaults.global.defaultFontColor = "#777";
+            Chart.defaults.global.defaultFontFamily = "Short Stack";
+            Chart.defaults.global.defaultFontSize = 12;
+            Chart.defaults.global.defaultFontStyle = "normal";
+            Chart.defaults.global.defaultFontColor = "#777";
 
-let myChart = document.getElementById("myChart").getContext("2d");
+            let myChart = document.getElementById("myChart").getContext("2d");
 
-let day = <%- JSON.stringify(dayResult) %>
+            let day = <%- JSON.stringify(dayResult) %>
 
-let week = <%- JSON.stringify(weekResult) %>
+            let week = <%- JSON.stringify(weekResult) %>
 
-let month = <%- JSON.stringify(monthResult) %>
+            let month = <%- JSON.stringify(monthResult) %>
 
-const config = {
-    type: "bar", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
-    data: {
-        datasets: [
-            {
-                label: "Hours",
-                data: day,
-                backgroundColor: [
-                    "rgba(255, 94, 91, 0.5)",
-                    "rgba(245, 114, 44, 0.5)",
-                    "rgba(255, 212, 73, 0.5)",
-                    "rgba(69, 194, 71, 0.5)",
-                    "rgba(75, 192, 192, 0.5)",
-                    "rgba(88, 105, 200, 0.5)",
-                    "rgba(72, 0, 135, 0.5)",
-                ],
-                borderWidth: 1,
-                borderColor: "rgba(188, 188, 188, 1)",
-                hoverBorderColor: "rgba(0, 0, 0, 1)",
-            },
-        ],
-    },
-    options: {
-        title: {
-            display: true,
-            text: "Hours Worked",
-            fontSize: 20,
-        },
-        legend: {
-            display: false,
-        },
-        scales: {
-            xAxes: [
-                {
-                    type: "time",
-                    time: {
-                        unit: "day",
-                    },
-                    offset: true,
-                    bounds: "ticks",
-                    distribution: "series",
+            const config = {
+                type: "bar", //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                data: {
+                    datasets: [
+                        {
+                            label: "Hours",
+                            data: day,
+                            backgroundColor: [
+                                "rgba(255, 94, 91, 0.5)",
+                                "rgba(245, 114, 44, 0.5)",
+                                "rgba(255, 212, 73, 0.5)",
+                                "rgba(69, 194, 71, 0.5)",
+                                "rgba(75, 192, 192, 0.5)",
+                                "rgba(88, 105, 200, 0.5)",
+                                "rgba(72, 0, 135, 0.5)",
+                            ],
+                            borderWidth: 1,
+                            borderColor: "rgba(188, 188, 188, 1)",
+                            hoverBorderColor: "rgba(0, 0, 0, 1)",
+                        },
+                    ],
                 },
-            ],
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
+                options: {
+                    title: {
+                        display: true,
+                        text: "Hours Worked",
+                        fontSize: 20,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    scales: {
+                        xAxes: [{
+                                type: "time",
+                                time: {
+                                    unit: "day",
+                                },
+                                offset: true,
+                                bounds: "ticks",
+                                distribution: "series",
+                        },],
+                        yAxes: [{
+                            ticks: { beginAtZero: true, },
+                        },],
                     },
                 },
-            ],
-        },
-    },
-};
+            };
 
-const hoursChart = new Chart(myChart, config);
+            const hoursChart = new Chart(myChart, config);
 
-/// Chart script ///
+            // Chart script //
 
-function timeFrame(period) {
-    if (period.value == "day") {
-        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
-        hoursChart.config.data.datasets[0].data = day;
-    } else if (period.value == "week") {
-        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
-        hoursChart.config.data.datasets[0].data = week;
-    } else {
-        hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
-        hoursChart.config.data.datasets[0].data = month;
-    }
-    hoursChart.update();
-}
+            function timeFrame(period) {
+                if (period.value == "day") {
+                    hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+                    hoursChart.config.data.datasets[0].data = day;
+                } else if (period.value == "week") {
+                    hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+                    hoursChart.config.data.datasets[0].data = week;
+                } else {
+                    hoursChart.config.options.scales.xAxes[0].time.unit = period.value;
+                    hoursChart.config.data.datasets[0].data = month;
+                }
+            hoursChart.update();
+            }
         </script>
         <script src="js/easyTimer.js"></script>
     </body>

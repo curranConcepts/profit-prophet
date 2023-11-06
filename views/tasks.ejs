@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profit Prophet</title>
+        <title>Profit Prophet | Tasks</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -12,7 +12,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-    <style>
+        <style>
         @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
         body {
             font-family: "Short Stack", cursive;
@@ -26,81 +26,49 @@
             <legend>[Profit Prophet]</legend>
             <div class="nav-bar">
                 <div class="nav1">
-                    <a href="/dashboard" class="button"
-                        ><button
-                            style="
-                            background-color: #ffd449;
-                            color: black;
-                            margin-right: 1em;
-                            "
-                            >
-                            Home
-                    </button></a
-                    >
-                    <a href="/entries" class="button"
-                        ><button
-                            style="
-                            background-color: #ffd449;
-                            color: black;
-                            margin-right: 1em;
-                            "
-                            >
-                            Entries
-                    </button></a
-                    >
-                    <a href="/tasks" class="button" id="grow"
-                        ><button
-                            style="background-color: #ffd449; color: black"
-                            >
-                            Tasks
-                    </button></a
-                    >
+                    <a href="/dashboard">
+                        <button class="yellowButton">Home</button>
+                    </a>
+                    <a href="/entries">
+                        <button class="yellowButton">Entries</button>
+                    </a>
+                    <a href="/tasks" id="grow">
+                        <button class="yellowButton">Tasks</button>
+                    </a>
                 </div>
-
-                <a href="/logout" class="button"
-                    ><button style="background-color: #ffd449; color: black">
-                        Log Out
-                </button></a
-                >
+                <a href="/logout">
+                    <button class="yellowButton">Log Out</button>
+                </a>
             </div>
             <div class="taskPage">
                 <fieldset>
                     <legend>New Task</legend>
                     <div class="taskContainer">
-                    <form action="/tasks/createTask" method="POST">
-                        <input
-                            type="text"
-                            placeholder="Task Name"
-                            name="task"
-                            size="38"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Measure"
-                            id="measure "
-                            name="measure"
-                            size="15"
-                        />
-                        <input
-                            type="number"
-                            step="any"
-                            placeholder="$Rate"
-                            name="pay"
-                        />
-                        <input
-                            type="submit"
-                            style="
-                            background-color: #ffd449;
-                            font-size: 0.5em;
-                            color: black;
-                            width: 70%;
-                            cursor: pointer;
-                            "
-                        />
-                    </form>
-                </div>
+                        <form action="/tasks/createTask" method="POST">
+                            <input
+                                type="text"
+                                placeholder="Task Name"
+                                name="task"
+                                size="28"
+                            />
+                            <input
+                                type="number"
+                                step="any"
+                                placeholder="$Rate"
+                                name="pay"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Measure"
+                                id="measure "
+                                name="measure"
+                                size="8"
+                            />
+                            <input class="submitButton" type="submit"/>
+                        </form>
+                    </div>
                 </fieldset>
-            <h3>Tasks</h3>
+                <h3>Tasks</h3>
                 <div class="taskContainer">
                     <table>
                         <thead>
@@ -121,17 +89,8 @@
                                         action="/tasks/deleteTask/<%= task._id %>?_method=DELETE"
                                         method="POST"
                                         class="col-3"
-                                        >
-                                        <button
-                                            class="fa fa-trash"
-                                            style="
-                                            background-color: #ff5e5b;
-                                            font-size: 0.5em;
-                                            color: black;
-                                            cursor: pointer;
-                                            "
-                                            type="submit"
-                                        ></button>
+                                    >
+                                        <button class="redButton fa fa-trash" type="submit"></button>
                                     </form>
                                 </td>
                             </tr>

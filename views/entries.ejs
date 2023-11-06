@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Profit Prophet</title>
+        <title>Profit Prophet | Entries</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -13,10 +13,10 @@
             referrerpolicy="no-referrer"
         />
         <style>
-        @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
-        body {
-            font-family: "Short Stack", cursive;
-        }
+            @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+            body {
+                font-family: "Short Stack", cursive;
+            }
         </style>
         <link rel="stylesheet" href="css/style.css" />
     </head>
@@ -26,42 +26,11 @@
             <legend>[Profit Prophet]</legend>
             <div class="nav-bar">
                 <div class="nav1">
-                    <a href="/dashboard" class="button"
-                    ><button
-                            style="
-                            background-color: #ffd449;
-                            color: black;
-                            margin-right: 1em;
-                            "
-                        >
-                            Home
-                        </button></a
-                    >
-                    <a href="/entries" class="button"
-                    ><button
-                            style="
-                            background-color: #ffd449;
-                            color: black;
-                            margin-right: 1em;
-                            "
-                        >
-                            Entries
-                        </button></a
-                    >
-                    <a href="/tasks" class="button" id="grow"
-                    ><button
-                            style="background-color: #ffd449; color: black"
-                        >
-                            Tasks
-                        </button></a
-                    >
+                    <a href="/dashboard"><button class="yellowButton">Home</button></a>
+                    <a href="/entries"><button class="yellowButton">Entries</button></a>
+                    <a href="/tasks" id="grow"><button class="yellowButton">Tasks</button></a>
                 </div>
-
-                <a href="/logout" class="button"
-                ><button style="background-color: #ffd449; color: black">
-                        Log Out
-                    </button></a
-                >
+                <a href="/logout"><button class="yellowButton">Log Out</button></a>
             </div>
             <fieldset>
             <legend>New Entry</legend>
@@ -73,14 +42,10 @@
                 <h1 id="seconds">00</h1>
             </section>
             <div class="timerButtons">
-                <button id="start" style="background-color: #45c247">
-                    Start
-                </button>
-                <button id="pause">Pause/Stop</button>
-                <button id="reset">Reset</button>
-                <button id="record" style="background-color: #ff5e5b">
-                    Record
-                </button>
+                <button id="start" class="greenButton">Start</button>
+                <button id="pause" class="greyButton">Pause/Stop</button>
+                <button id="reset" class="greyButton">Reset</button>
+                <button id="record" class="redButton">Record</button>
             </div>
             <form class="newEntry" action="/entries/addEntry" method="POST">
                 <select id="task" name="task">
@@ -100,13 +65,7 @@
                     <% }) %>
                 </select>
                 <input type="number" id="pay" step="any" placeholder="$ Total" name="pay" />
-                <input type="submit" style="
-                    background-color: #ffd449;
-                    font-size: 0.5em;
-                    color: black;
-                    width: 100%;
-                    cursor: pointer;
-                    " />
+                <input type="submit" class="submitButton" />
             </form>
 
             </fieldset>
@@ -132,20 +91,8 @@
                         <td class="tableData"><%= entries.duration %></td>
                         <td class="tableData"><%= entries.pay %></td>
                         <td class="tableData">
-                            <form
-                                action="/entries/deleteEntry/<%= entries._id %>?_method=DELETE"
-                                method="POST"
-                            >
-                                <button
-                                    class="fa fa-trash"
-                                    style="
-                                    background-color: #ff5e5b;
-                                    font-size: 0.5em;
-                                    color: black;
-                                    cursor: pointer;
-                                    "
-                                    type="submit"
-                                ></button>
+                            <form action="/entries/deleteEntry/<%= entries._id %>?_method=DELETE" method="POST">
+                                <button class="deleteButton fa fa-trash" type="submit"></button>
                             </form>
                         </td>
                     </tr>
