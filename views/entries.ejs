@@ -128,7 +128,7 @@
                 // Calculate pay by multiplying units with the task's pay rate
                 const pay = units * task.pay;
                 // Update the pay input field with the calculated value
-                payInput.value = pay;
+                payInput.value = pay.toFixed(2);
             } else {
                 // Handle the case where the selected task is not found
                 payInput.value = ''; // Clear the pay input field
