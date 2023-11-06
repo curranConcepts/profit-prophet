@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Profit Prophet 👋</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -9,35 +9,35 @@
   </a>
 </p>
 
-> A simple task/profit tracker to help independent contractors bid their work
+> A simple task/profit tracker with dashboard to help independent contractors visualize profits.
 
 ### ✨ [Demo](https://profit-prophet.fly.dev)
  <p align="center">
    <a target="_blank" href="https://profit-prophet.fly.dev">
-            <img src="https://media.giphy.com/media/N7hJGqFx8o1NPUE7qp/giphy.gif" width="50%" alt="Profit-Prophet"/>
+            <img src="https://i.ibb.co/r0B8TW5/profit-Mock.jpg" width="50%" alt="Profit-Prophet"/>
   </a>
  </p>
 
 ## 🚀 Usage
 
-Visit https://profit-prophet.fly.dev
+Visit https://profit-prophet.fly.dev and create an account.
 
 * First you must add some tasks to track.
   Click edit tasks ->
   add task name, and how much you charge for the task ->
-  click submit (your task should populate in the list).
+  click submit to add task. (your task should populate in the list).
 
 * Track your first task.
-  On the dashboard page select your task from drop down menu ->
+  On the entries page in the new entry section, select your task from drop down menu ->
   click start to start the timer (use the pause button for unpaid breaks) ->
   when finished with task click stop button to stop timer ->
   click record button to record time to 'duration' of task ->
   add how many units of task were completed ->
-  click submit to add entry.
+  click submit to add entry. (your entry should populate in the list.)
 
 * See how your hard work pays off!
   The dashboard will track your total hours worked and total pay earned and give you an hourly average.
-  Use the entries tab to view and delete all entries individually.
+  The buttons under the chart will toggle daily view, weekly view, and monthly views respectively. 
 
 ## Author
 
