@@ -27,17 +27,18 @@
             <div class="nav-bar">
                 <div class="nav1">
                     <a href="/dashboard">
-                        <button class="yellowButton">Home</button>
+                        <button class="yellowButton navButton">Home</button>
                     </a>
                     <a href="/entries">
-                        <button class="yellowButton">Entries</button>
+                        <button class="yellowButton navButton">Entries</button>
                     </a>
-                    <a href="/tasks" id="grow">
-                        <button class="yellowButton">Tasks</button>
+                    <a href="/tasks">
+                        <button class="yellowButton navButton">Tasks</button>
                     </a>
                 </div>
+                <p class="loginStatus"><i class="fa-regular fa-circle-user"></i><%= user.userName %> </p>
                 <a href="/logout">
-                    <button class="yellowButton">Log Out</button>
+                    <button class="yellowButton navButton">Log Out</button>
                 </a>
             </div>
             <div class="taskPage">
@@ -49,20 +50,21 @@
                                 type="text"
                                 placeholder="Task Name"
                                 name="task"
-                                size="28"
+                                class="taskName"
                             />
                             <input
                                 type="number"
                                 step="any"
                                 placeholder="$Rate"
                                 name="pay"
+                                class="taskPay"
                             />
                             <input
                                 type="text"
                                 placeholder="Measure"
                                 id="measure "
                                 name="measure"
-                                size="8"
+                                class="taskMeasure"
                             />
                             <input class="submitButton" type="submit"/>
                         </form>

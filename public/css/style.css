@@ -56,9 +56,20 @@ form.signUp {
 	flex-flow: row wrap;
 	justify-content: space-between;
 }
-input[type="number"] {
+
+input.taskName {
+    width: 100%;
+}
+
+input.taskPay {
+    width: 50%;
+}
+input.taskMeasure {
+    width: 50%;
+}
+input[type="number"] #pay {
       width: 150px;
-    }
+}
 
 .taskContainer {
 	display: flex;
@@ -91,6 +102,7 @@ input[type="number"] {
 	/* This aligns items to the end line on main-axis */
 	justify-content: flex-start;
 }
+
 
 /* Button Styles */
 
@@ -368,12 +380,17 @@ button.deleteButton {
 	}
 }
 
-@media all and (max-width: 300px) {
+@media all and (max-width: 460px) {
 	.nav-bar,
-	.nav1,
-	.nav2 {
+	.nav1 {
 		/* On small screens, we are no longer using row direction but column */
 		flex-direction: column;
-		align-content: center;
+        width: 100%;
 	}
+    button.navButton, .nav-bar p {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

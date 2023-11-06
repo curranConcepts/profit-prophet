@@ -21,12 +21,20 @@
             <legend>[Profit Prophet]</legend>
             <div class="nav-bar">
                 <div class="nav1">
-                    <a href="/dashboard"><button class="yellowButton">Home</button></a>
-                    <a href="/entries"><button class="yellowButton">Entries</button></a>
-                    <a href="/tasks" id="grow"><button class="yellowButton">Tasks</button></a>
+                    <a href="/dashboard">
+                        <button class="yellowButton navButton">Home</button>
+                    </a>
+                    <a href="/entries">
+                        <button class="yellowButton navButton">Entries</button>
+                    </a>
+                    <a href="/tasks">
+                        <button class="yellowButton navButton">Tasks</button>
+                    </a>
                 </div>
-                <p class="loginStatus">Logged in as: <%= user.userName %> </p>
-                <a href="/logout"><button class="yellowButton">Log Out</button></a>
+                <p class="loginStatus"><i class="fa-regular fa-circle-user"></i><%= user.userName %> </p>
+                <a href="/logout">
+                    <button class="yellowButton navButton">Log Out</button>
+                </a>
             </div>
             <div class="hero">
                 <img src="/images/hourglass.png" style="border: none; height: 15%; width: 15%" />
@@ -44,7 +52,6 @@
                     <button class="greyButton" onclick="timeFrame(this)" value="week">Weeks</button>
                     <button class="greyButton" onclick="timeFrame(this)" value="month">Months</button>
                 </div>
-            </div>
         </fieldset>
 
         <script>
