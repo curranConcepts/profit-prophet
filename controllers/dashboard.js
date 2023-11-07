@@ -58,10 +58,13 @@ module.exports = {
             const previousYear = await Entries.find({"date":{$gte: new Date((new Date().getTime() - (365 * 24 * 60 * 60 * 1000)))}}).sort({ "date": 1 })
 
             // Days Chart
-            const dayData = previousWeek.map(entry => ({
-                x: entry.date.toLocaleDateString(),
-                y: parseInt(entry.duration.split(':')[0])
-            }));
+            const dayData = previousWeek.map((entry) => {
+                const date = new Date(entry.date);
+                return {
+                    x: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                    y: parseInt(entry.duration.split(':')[0]),
+                };
+            });
 
             const reducedDay = Object.values(dayData.reduce((c, { x, y }) => {
                 c[x] = c[x] || {x,y: 0};
